@@ -1,0 +1,30 @@
+{
+  "RootNamespace":"",
+  "Packages": [
+  	"Fuse",
+  	"FuseJS",
+    "Fuse.BasicTheme"
+  ],
+  "Includes": [
+    "*",
+    "scripts/md5.js:Bundle"
+  ],
+  "Icon": "icon.png",
+  "Android": {
+    "Icons": {
+        "LDPI": "$(Icon)",
+        "MDPI": "$(Icon)",
+        "HDPI": "$(Icon)",
+        "XHDPI": "$(Icon)",
+        "XXHDPI": "$(Icon)",
+        "XXXHDPI": "$(Icon)"
+    },
+    "Key": {
+        "Alias": "application",
+        "AliasPassword": "Android",
+        "Store": "release.keystore",
+        "StorePassword": "Android"
+    }
+  }
+
+}

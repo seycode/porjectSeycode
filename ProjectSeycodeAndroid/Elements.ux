@@ -1,0 +1,52 @@
+<Panel>
+
+    <Rectangle ux:Class="Header" Background="#BDC3C7" Height="64">
+        <Text Value="SeyCode" Font="Bold" FontSize="22" Color="#eee" Alignment="Center" TextAlignment="Center" />
+    </Rectangle>
+
+    <Panel ux:Class="Tab" ux:Name="self" ClipToBounds="false" Margin="0,0,0,4" Background="#bdc3c7">
+        <string ux:Property="Icon" />
+        <string ux:Property="Text" />
+        <Text Value="{Property self.Icon}" TextColor="#FFF" FontSize="35" Font="fa" Alignment="Center" />
+        <Text Value="{Property self.Text}" TextColor="#FFF" FontSize="14" Font="Bold" Alignment="Center" Y="21" />
+    </Panel>
+
+    <TextInput ux:Class="TInput" PlaceholderColor="#BDC3C7" Padding="0,0,0,3" TextColor="#000" Font="LightItalic">
+
+        <Rectangle Alignment="Bottom" Layer="Background" Color="#eee">
+            <Stroke Width="1" Alignment="Center" Brush="#BDC3C7" />
+        </Rectangle>
+
+    </TextInput>
+
+    <TextView ux:Class="TView" PlaceholderColor="#BDC3C7" TextColor="#000" Font="LightItalic">
+        <Rectangle Layer="Background" CornerRadius="7" Color="#eee">
+            <Stroke Width="1" Brush="#BDC3C7" />
+        </Rectangle>
+    </TextView>
+
+    <Panel ux:Class="Btn" Padding="0,5,0,5" ux:Name="btn">
+        <string ux:Property="Text" />
+        <Text Value="{Property btn.Text}" Font="LightItalic" Color="#27AE60" Alignment="Center" />
+
+        <Rectangle Layer="Background" Color="#eee">
+            <Stroke Width="1" Brush="#27AE60" />
+        </Rectangle>
+    </Panel>
+
+    <ToggleControl ux:Class="Checkbox" HitTestMode="LocalBounds">
+        <Clicked>
+            <Toggle Target="this"/>
+        </Clicked>
+
+        <Rectangle Width="23" Height="23" CornerRadius="3">
+            <Stroke Width="2" Color="#BDC3C7" />
+            <Text Color="#27AE60" FontSize="20" X="1.5" Y="1.5" ux:Name="checkbox" Font="fa"/>
+
+            <WhileTrue Source="this">
+                <Change checkbox.Value="&#xf00c;"/>
+            </WhileTrue>
+        </Rectangle>
+    </ToggleControl>
+
+</Panel>

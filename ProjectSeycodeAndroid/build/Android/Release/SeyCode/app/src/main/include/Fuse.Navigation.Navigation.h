@@ -1,0 +1,48 @@
+// This file was generated based on /usr/local/share/uno/Packages/Fuse.Navigation/0.32.14/$.uno.
+// WARNING: Changes might be lost if you edit this file directly.
+
+#pragma once
+#include <Uno.Object.h>
+namespace g{namespace Fuse{namespace Navigation{struct Navigation;}}}
+namespace g{namespace Fuse{namespace Navigation{struct NavigationStateArgs;}}}
+namespace g{namespace Fuse{struct Node;}}
+namespace g{namespace Fuse{struct PropertyHandle;}}
+namespace g{namespace Fuse{struct Visual;}}
+
+namespace g{
+namespace Fuse{
+namespace Navigation{
+
+// public interfacemodifiers class Navigation :814
+// {
+uType* Navigation_typeof();
+void Navigation__GetLocalNavigation_fn(::g::Fuse::Visual* node, uObject** __retval);
+void Navigation__GetNavigationNavigation_fn(::g::Fuse::Visual* n, uObject** __retval);
+void Navigation__InvokeState_fn(uObject* handler, uArray* state);
+void Navigation__IsPage_fn(::g::Fuse::Node* n, bool* __retval);
+void Navigation__NotifyNavigationState_fn(::g::Fuse::Visual* n, ::g::Fuse::Navigation::NavigationStateArgs* state);
+void Navigation__TryFind_fn(::g::Fuse::Visual* node, uObject** __retval);
+void Navigation__TryFindBaseNavigation_fn(::g::Fuse::Visual* node, uObject** __retval);
+void Navigation__TryFindPage_fn(::g::Fuse::Visual* node, ::g::Fuse::Visual** __retval);
+void Navigation__TryFindPage1_fn(::g::Fuse::Visual* node, uObject** nav, ::g::Fuse::Visual** pageBind, ::g::Fuse::Visual** __retval);
+
+struct Navigation : uObject
+{
+    static uSStrong< ::g::Fuse::PropertyHandle*> _contextHandle_;
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _contextHandle() { return Navigation_typeof()->Init(), _contextHandle_; }
+    static uSStrong< ::g::Fuse::PropertyHandle*> _navigationStateHandler_;
+    static uSStrong< ::g::Fuse::PropertyHandle*>& _navigationStateHandler() { return Navigation_typeof()->Init(), _navigationStateHandler_; }
+
+    static uObject* GetLocalNavigation(::g::Fuse::Visual* node);
+    static uObject* GetNavigationNavigation(::g::Fuse::Visual* n);
+    static void InvokeState(uObject* handler, uArray* state);
+    static bool IsPage(::g::Fuse::Node* n);
+    static void NotifyNavigationState(::g::Fuse::Visual* n, ::g::Fuse::Navigation::NavigationStateArgs* state);
+    static uObject* TryFind(::g::Fuse::Visual* node);
+    static uObject* TryFindBaseNavigation(::g::Fuse::Visual* node);
+    static ::g::Fuse::Visual* TryFindPage(::g::Fuse::Visual* node);
+    static ::g::Fuse::Visual* TryFindPage1(::g::Fuse::Visual* node, uObject** nav, ::g::Fuse::Visual** pageBind);
+};
+// }
+
+}}} // ::g::Fuse::Navigation

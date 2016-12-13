@@ -1,0 +1,6 @@
+# view AndroidManifest.xml #generated:52
+-keep class com.apps.seycode.Android_android_app_Activity { <init>(...); }
+
+# view AndroidManifest.xml #generated:24
+-keep class com.apps.seycode.SeyCode { <init>(...); }
+

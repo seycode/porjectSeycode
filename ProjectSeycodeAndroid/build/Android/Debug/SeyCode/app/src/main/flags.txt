@@ -1,0 +1,7 @@
+/Users/niklas/android-ndk-r12b
+9
+armeabi-v7a
+-O3 -g -DNDEBUG
+
+ -I/usr/local/share/uno/Packages/Fuse.Scripting.V8/0.32.14 -I/usr/local/share/uno/Packages/UnoCore/0.32.2/prebuilt/Android/include
+/Users/niklas/android-ndk-r12b/sources/cxx-stl/stlport/stlport

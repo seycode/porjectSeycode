@@ -1,0 +1,105 @@
+<App Background="#eee">
+
+    <!-- Includes -->
+    <Font File="fonts/fontawesome-webfont.ttf" ux:Global="fa" />
+
+    <ux:Include File="icons.ux" />
+    <ux:Include File="Elements.ux" />
+
+    <JavaScript File="scripts/md5.js" />
+    <JavaScript File="scripts/main.js" />
+
+    <DockPanel>
+
+        <!-- Status bar -->
+        <StatusBarBackground DockPanel.Dock="Top" />
+        <BottomBarBackground DockPanel.Dock="Bottom" />
+        <iOS.StatusBarConfig Style="Light"/>
+
+        <Panel ux:Class="Tab" ux:Name="self" ClipToBounds="false" Margin="0,0,0,4" Background="#bdc3c7">
+            <string ux:Property="Text" />
+            <Text Value="{Property self.Text}" TextColor="#FFF" Font="RobotoMedium" Alignment="Center" />
+        </Panel>
+
+        <StackPanel Dock="Top" Background="#bdc3c7">
+            <Header />
+
+            <!-- Tab bar -->
+            <MultiLayoutPanel Height="50" ux:Name="tabBar">
+                <GridLayout ColumnCount="2" Rows="1*"/>
+                <Panel ux:Name="encryptTab">
+                    <Placeholder>
+                        <Rectangle ux:Name="indicator" Alignment="Bottom" Height="4" Fill="#6c7a89">
+                            <LayoutAnimation>
+                                <Move RelativeTo="LayoutChange" X="1" Duration="0.3" Easing="BackIn"/>
+                            </LayoutAnimation>
+                        </Rectangle>
+                    </Placeholder>
+                    <Tab Text="Encrypt">
+                        <Clicked>
+                            <Set navigation.Active="encrypt" />
+                        </Clicked>
+                    </Tab>
+                </Panel>
+                <Panel ux:Name="decryptTab">
+                    <Placeholder Target="indicator"/>
+                    <Tab Text="Decrypt">
+                        <Clicked>
+                            <Set navigation.Active="decrypt" />
+                        </Clicked>
+                    </Tab>
+                </Panel>
+            </MultiLayoutPanel>
+        </StackPanel>
+
+        <PageControl ux:Name="navigation">
+            <Page ux:Name="encrypt" Background="#eee">
+
+                <WhileActive Threshold="0.5">
+                    <Set tabBar.LayoutElement="encryptTab" />
+                </WhileActive>
+
+                <ScrollView>
+                    <StackPanel Margin="0,10,0,0">
+
+                        <Basic.TextInput PlaceholderText="Key 1" Value="{key1Encode}" PlaceholderColor="#636363" />
+                        <Basic.TextInput PlaceholderText="Key 2" Value="{key2Encode}" PlaceholderColor="#636363" />
+
+                        <Panel Margin="10, 0, 10, 0">
+                            <Checkbox Alignment="Left" Value="{checkboxChecked}" />
+                            <Text Value="Hash Key 2" Font="Ubuntu" Margin="25,0,0,0" />
+                            <Text Value="{encodeError}" Font="Ubuntu" Color="#c0392b" Alignment="Right" />
+                        </Panel>
+
+                        <TextView Background="#ffffff" Value="{plainTextEncode}" PlaceholderText="Plain" MinHeight="150" Padding="4" PlaceholderColor="#636363" TextWrapping="Wrap" Margin="10,10,10,0"></TextView>
+                        <TextView Background="#ffffff" Value="{encodedText}" PlaceholderText="Encrypted" MinHeight="70" Padding="4" PlaceholderColor="#636363" TextWrapping="Wrap" Margin="10,10,10,0"></TextView>
+
+                        <Basic.Button Text="Encrypt" Clicked="{encode}" Margin="10,10,10,0" />
+                    </StackPanel>
+                </ScrollView>
+
+            </Page>
+            <Page ux:Name="decrypt" Background="#eee">
+                <WhileActive Threshold="0.5">
+                    <Set tabBar.LayoutElement="decryptTab" />
+                </WhileActive>
+
+                <ScrollView>
+                    <StackPanel Margin="0,10,0,0">
+
+                        <Basic.TextInput Value="{key1Decode}" PlaceholderText="Key 1 (Plain)" PlaceholderColor="#636363" />
+                        <Basic.TextInput Value="{key2Decode}" PlaceholderText="Key 2 (Hashed)" PlaceholderColor="#636363" />
+
+                        <Text Value="{decodeError}" Color="#c0392b" Alignment="Center" />
+
+                        <TextView Value="{plainTextDecode}" Background="#ffffff" PlaceholderText="Decrypt" MinHeight="150" Padding="4" PlaceholderColor="#636363" TextWrapping="Wrap" Margin="10,10,10,0"></TextView>
+                        <TextView Value="{decodedText}" Background="#ffffff" PlaceholderText="Plain" MinHeight="70" Padding="4" PlaceholderColor="#636363" TextWrapping="Wrap" Margin="10,10,10,0"></TextView>
+
+                        <Basic.Button Clicked="{decode}" Text="Decrypt" Margin="10,10,10,0" />
+                    </StackPanel>
+                </ScrollView>
+
+            </Page>
+        </PageControl>
+    </DockPanel>
+</App>
